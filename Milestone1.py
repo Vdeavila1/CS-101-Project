@@ -26,7 +26,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 4,
    "id": "c1bfcca1-78d6-47aa-b703-0a04594c340b",
    "metadata": {},
    "outputs": [],
@@ -38,8 +38,7 @@
     "    for dnaString in dna_list:\n",
     "        countGC = 0\n",
     "        countAT = 0\n",
-    "        dnaString = dnaString.upper()\n",
-    "        for letter in dnaString:\n",
+    "        for i in dnaString.upper():\n",
     "            if letter == 'G' or letter == 'C':\n",
     "                countGC += 1\n",
     "            elif letter == 'A' or letter == 'T':\n",
