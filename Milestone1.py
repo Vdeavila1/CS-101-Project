@@ -31,11 +31,11 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "def GC_content(dnaList):\n",
+    "def GC_content(dna_list):\n",
     "##This function should accept a list of DNA strings, and return the index of the DNA string with the highest GC-content and its GC-content percentage as a tuple.\n",
     "##The GC-content of a DNA string is the percentage of nucleotides in the string that are \"C\" or \"G\".\n",
     "    contentList = []\n",
-    "    for dnaSting in dnaList:\n",
+    "    for dnaSting in dna_list:\n",
     "        countGC = 0\n",
     "        countAT = 0\n",
     "        dnaString = dnaString.upper()\n",
@@ -56,7 +56,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 2,
    "id": "8219f3ea-a568-4e29-ae77-57523c22acc3",
    "metadata": {},
    "outputs": [],
@@ -83,6 +83,22 @@
     "    else: \n",
     "        return 'Invalid'"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "880e242a-acfa-46ca-ab81-f16b46a6592b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b6286c18-7801-48b5-866a-934113d2e0ce",
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
