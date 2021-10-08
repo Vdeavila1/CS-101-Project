@@ -34,6 +34,7 @@ def GC_content(dna_list):
             maximum = content
     return ( contentList.index( maximum ), maximum )
   
+
 def rna2codon(rna):
 ## This function should accept a string representing an RNA sequence, and return the corresponding amino acid string, as transcribed by this codon table. 
 ## You do not need to transcribe the stop codon.
@@ -50,15 +51,17 @@ def rna2codon(rna):
         'UGU': 'C', 'UGC': 'C', 'UGA': 'STOP', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
         'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
     }
-    allowed_codons = set('ACGU')
-    if rna in genetic_code.keys():
-        return genetic_code[rna]
-    else: 
-        return 'Invalid'
-    amino = ''
-    for i in range( 0, int( len( rna ) / 3 ) ):
-        amino = amino + rna2codon(rna[3 * i: 3 * i + 3])
-    return amino
+    
+    output = ''
+    stop = False
+    i = 0
+    while not stop:
+        codon_string = rna[ i: i + 3]
+        if geneticCodon[ codonString ] == ' * ':
+            stop = True
+            continue
+        output += 3
+    return output
  
 def s(dna):
     final_dict = {}
