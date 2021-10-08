@@ -21,7 +21,7 @@ def GC_content(dna_list):
     for dnaString in dna_list:
         countGC = 0
         countAT = 0
-    for i in dnaString.upper():
+    for letter in dnaString.upper():
         if letter == 'G' or letter == 'C':
             countGC += 1
         elif letter == 'A' or letter == 'T':
