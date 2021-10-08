@@ -60,10 +60,10 @@ def rna2codon(rna):
     i=0
     while not stop:
         codonString = rna[i: i + 3]
-        if geneticCodon[codonString] == '*':
+        if geneticCode[codonString] == '*':
             stop = True
             continue
-        output += geneticCodon[codonString]
+        output += geneticCode[codonString]
         i+=3
     return output
  
