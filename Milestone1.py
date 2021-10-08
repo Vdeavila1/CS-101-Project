@@ -57,14 +57,14 @@ def rna2codon(rna):
   
     output = ""
     stop = False
-    i=0
+    x=0
     while not stop:
-        codonString = rna[i: i + 3]
+        codonString = rna[x: x + 3]
         if geneticCode[codonString] == '*':
             stop = True
             continue
         output += geneticCode[codonString]
-        i+=3
+        x+=3
     return output
  
 def s(dna):
