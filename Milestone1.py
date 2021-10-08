@@ -59,7 +59,45 @@ def rna2codon(rna):
     for i in range( 0, int( len( rna ) / 3 ) ):
         amino = amino + rna2codon(rna[3 * i: 3 * i + 3])
     return amino
-   
+ 
+def s(dna):
+    final_dict = {}
+    total_ncltde_count = []
+    nucleotides = ['A','C','G','T']
+    dna = dna.upper()
+    for c in nucleotides: #counts how many instances of each nucleotide
+        ncltde_count = dna.count(c)
+        total_ncltde_count += [ncltde_count]
+    for num in range(len(nucleotides)): # adds the number to dict with its respective nucleotide
+        final_dict[nucleotides[num]] = total_ncltde_count[num]
+    return(final_dict)
+
+
+def mendels_law(hom, het, rec):
+    pop = hom + het + rec # total population
+    d = hom
+    b = het
+    r = rec
+    prob = (8*r*d+8*d*b+4*r*b+3*(b**2-b)+4*(d**2-d))/(4*(pop**2-pop))
+    return prob
+
+def hamming_dist(dna1,dna2):
+    count = 0
+    for i in range(len(dna1)): #for each nucleotide in dna1
+        if dna1[i] is dna2[i]: #check if equal to dna2's corresponding nucleotide 
+            continue           #if so, move on
+        else:
+            count += 1         #if not equal, add to counter for total # of differences
+    return count
+
+
+def count_dom_phenotype(genotypes):
+    count = 0
+    for n in genotypes[:3]:      # takes the first 3 ints from the list
+        count += n               # add to count (Anytime there is AA parent, all childs have 1 dom allele)
+    count += genotypes[3] * 0.75 # 4th int is Aa * Aa which is 0.75 dom alleles
+    count += genotypes[4] * 0.5  # 5th int is Aa * aa whcih is 0.5 alleles
+    return (count*2)             # mult by 2 since 2 children per pair
   
   
    
