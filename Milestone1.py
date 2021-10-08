@@ -35,7 +35,7 @@
     "##This function should accept a list of DNA strings, and return the index of the DNA string with the highest GC-content and its GC-content percentage as a tuple.\n",
     "##The GC-content of a DNA string is the percentage of nucleotides in the string that are \"C\" or \"G\".\n",
     "    contentList = []\n",
-    "    for dnaSting in dna_list:\n",
+    "    for dnaString in dna_list:\n",
     "        countGC = 0\n",
     "        countAT = 0\n",
     "        dnaString = dnaString.upper()\n",
