@@ -58,7 +58,7 @@ def rna2codon(rna):
     stop = False
     i = 0
     while not stop:
-        codon_string = rna[ i: i + 3]
+        codonString = rna[ i: i + 3]
         if genetic_code[ codonString ] == ' STOP ':
             stop = True
             continue
