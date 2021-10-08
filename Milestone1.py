@@ -11,7 +11,7 @@ def reverse_complement(dna):
         elif letter == 'G':
             dnaComp += 'C'
         elif letter == 'T':
-            dnaComp += 'A':
+            dnaComp += 'A'
     return dnaComp
 
 def GC_content(dna_list):
