@@ -21,12 +21,13 @@ def GC_content(dna_list):
     for dnaString in dna_list:
         countGC = 0
         countAT = 0
-    for letter in dnaString.upper():
-        if letter == 'G' or letter == 'C':
-            countGC += 1
-        elif letter == 'A' or letter == 'T':
-             countAT += 1
-    contentList.append( countGC / ( countGC + countAT ) * 100 )
+        dnaString = dnaString.upper()
+        for letter in dnaString:
+            if letter == 'G' or letter == 'C':
+                countGC += 1
+            elif letter == 'A' or letter == 'T':
+                countAT += 1
+        contentList.append( countGC / ( countAT + countGC ) * 100 )
     maximum = contentList[ 0 ]
     for content in contentList:
         if content > maximum:
