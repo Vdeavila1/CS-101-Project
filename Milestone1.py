@@ -38,9 +38,6 @@ def GC_content(dna_list):
 def rna2codon(rna):
 ## This function should accept a string representing an RNA sequence, and return the corresponding amino acid string, as transcribed by this codon table. 
 ## You do not need to transcribe the stop codon.
-    if rna == "":
-        return ""
-       
     geneticCode = {
         'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
         'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
