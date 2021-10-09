@@ -107,13 +107,19 @@ def count_dom_phenotype(genotypes):
     return (count*2)             # mult by 2 since 2 children per pair
 
 def splice_rna(dna, intron_list):
+##This function should accept a string representing a DNA sequence and a list of strings representing introns. 
+##The process of transcribing DNA into RNA involves translating the DNA to RNA and then performing RNA splicing, where the sequence is chopped into smaller segments called introns and exons
+##Introns are segments of the gene not used for protein translation, so they should be removed from the sequence.
+##Exons are the remaining segments, which are then transcribed sequentially into a protein string. splice_rna() should return a protein string that results from transcribing and translating the exons of the given string.
     for x in intron_list:
         dna = dna.replace( x, '' )
-    rna = dna2rna( dna )
-    codon = rna2codon( rna )
+    rna = dna2rna( dna )    ##Converts dna inputs to rna using dna2rna function
+    codon = rna2codon( rna )    ##Converts rna input to codons using rna2codon function
     return codon
 
 def dna2rna(dna):
+##This function should accept a string representing a DNA sequence and return the transcribed RNA string. 
+##DNA sequences are transcribed to RNA sequences by replacing all occurrences of the "T" nucleotides with "U"
     rna = ''
     for symbol in dna:
         if symbol == 'T':
