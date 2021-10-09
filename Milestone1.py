@@ -105,6 +105,24 @@ def count_dom_phenotype(genotypes):
     count += genotypes[3] * 0.75 # 4th int is Aa * Aa which is 0.75 dom alleles
     count += genotypes[4] * 0.5  # 5th int is Aa * aa whcih is 0.5 alleles
     return (count*2)             # mult by 2 since 2 children per pair
-  
-  
+
+def splice_rna(dna, intron_list):
+    for x in intron_list:
+        dna = dna.replace( x, '' )
+    rna = dna2rna( dna )
+    codon = rna2codon( rna )
+    return codon
+
+def dna2rna(dna):
+    rna = ''
+    for symbol in dna:
+        if symbol == 'T':
+            rna = rna + 'U'
+        elif symbol == 'A':
+            rna = rna + 'A'
+        elif symbol == 'G':
+            rna = rna + 'G'
+        else:
+            rna = rna + 'C'
+    return rna
    
