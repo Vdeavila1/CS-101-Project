@@ -131,4 +131,12 @@ def dna2rna(dna):
         else:
             rna = rna + 'C'
     return rna
+
+def fibonacci_rabbits(n,k):
+##This function should accept two integers n and k and calculate the total number of rabbit pairs that will be present after nn months, given that every pair of mating rabbits produces k rabbit pairs in their next litter (in the next month).
+    month1=1
+    month2=1
+    for i in range(n-1):
+        month2, month1 =month1, month1+(month2*k)
+    return month2
    
