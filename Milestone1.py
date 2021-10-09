@@ -36,8 +36,6 @@ def GC_content(dna_list):
   
 
 def rna2codon(rna):
-## This function should accept a string representing an RNA sequence, and return the corresponding amino acid string, as transcribed by this codon table. 
-## You do not need to transcribe the stop codon.
     geneticCode = {
         'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
         'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
@@ -45,24 +43,21 @@ def rna2codon(rna):
         'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',        'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
         'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',        'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
  
-        'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',        'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
+        'UAU': 'Y', 'UAC': 'Y', 'UAA': '', 'UAG': '',        'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
         'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',        'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
  
-        'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
+        'UGU': 'C', 'UGC': 'C', 'UGA': '', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
         'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
     }
-  
-    output = ""
-    stop = False
-    x=0
-    while not stop:
-        codonString = rna[x: x + 3]
-        if geneticCode[codonString] == '*':
-            stop = True
-            continue
-        output = output + geneticCode[codonString]
-        x = x + 3
+    output = ''
+    threes = [rna[x:x+3] for x in range(0, len(rna), 3)]  # Splits rna into groups of 3
+    for chunk in threes:                                                           # adds each rna protein to final list
+        if geneticCode[chunk] == '':                                     # stops if it hits a stop codon
+            break
+        output += geneticCode[chunk]
     return output
+rna = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
+print(rna2codon(rna))
  
 def s(dna):
     final_dict = {}
@@ -167,12 +162,15 @@ def locate_substring(dna_snippet,dna):
     occur_list = []
     count = 0
     i=0
-    while (i<len(dna_snippet)-1):#loops to find where each occurence is
+    while (i<len(dna)):#loops to find where each occurence is
         count = dna.find(dna_snippet,count)#finds first occurence of dna_snippet and stores in count
-        occur_list.append(count)
+        if count == -1:
+            break
+        else:
+            occur_list.append(count)
         i+=1
         count+=1
     return occur_list
 dnas = "ATAT"
-dna0 = "GATATATGCATATACTT"
+dna0 = "ATATATATATATATATATATATATATATATATATATATATATATATATATATATATATA"
 print(locate_substring(dnas,dna0))
