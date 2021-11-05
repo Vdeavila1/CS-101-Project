@@ -21,8 +21,8 @@ def assemble_genome( dnaList ):
     dictionary = {}
     for i in range( len( dnaList ) ):
         for j in range( len( dnaList ) ):
-        if i != j:
-            x = 0
+            if i != j:
+                x = 0
             for k in range( 1, min( len( dnaList [i] ), len( dnaList [j] ) ) ):
                 if dnaList [j] [:k] == dnaList [i] [-k:]:
                     x = k
