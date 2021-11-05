@@ -26,7 +26,7 @@ def assemble_genome( dnaList ):
             for k in range( 1, min( len( dnaList [i] ), len( dnaList [j] ) ) ):
                 if dnaList [j] [:k] == dnaList [i] [-k:]:
                     a = k
-                dictionary [ ( i, j ) ] = a
+                a = dictionary [ ( i, j ) ]
     if max( dictionary.values() ) == 0:
         return ''.join( dnaList )
     else:
