@@ -143,7 +143,7 @@ def rev_palindrome(dna):
 
     return ans
   
-  import math
+
 
 def random_genome(dna, gc_content):
     ans = []
