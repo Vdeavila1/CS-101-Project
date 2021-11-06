@@ -9,7 +9,7 @@ def find_splice( dna_motif, dna ):
     index = 0
     positions = []
     for x in range( len( dna ) ):
-        if (character == dna[ i ]):
+        if (character == dna[ x ]):
             positions.append( x )
             index = index + 1
             if index >= len( dna_motif ):
@@ -20,7 +20,7 @@ def find_splice( dna_motif, dna ):
     return positions
 
   
-from math import factorial
+
 def assemble_genome( dna_list ):
     ## This function should accept a list of DNA strings and return the shortest superstring containing all given DNA strings.
     ## A superstring is a string that contains each of the smaller provided strings as a substring. 
