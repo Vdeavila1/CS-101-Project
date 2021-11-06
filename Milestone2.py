@@ -23,9 +23,9 @@ def assemble_genome( dna_list ):
         for j in range( len( dna_list ) ):
             if i != j:
                 a = 0
-            for k in range( 1, min( len( dna_list [i] ), len( dna_list [j] ) ) ):
-                if dna_list [j] [:k] == dna_list [i] [-k:]:
-                    a = k
+                for k in range( 1, min( len( dna_list [i] ), len( dna_list [j] ) ) ):
+                    if dna_list [j] [:k] == dna_list [i] [-k:]:
+                        a = k
                 dictionary [ ( i, j ) ] = a
     if max( dictionary.values() ) == 0:
         return ''.join( dna_list )
@@ -47,7 +47,7 @@ def assemble_genome( dna_list ):
                     pack = [ [ dictionary[ pl, index ], index] for index in left ]
                     pack.sort()
                     for a, index in pack:
-                        v2 = v1 + dnaList[ index ][ a: ]
+                        v2 = v1 + dna_list[ index ][ a: ]
                         last = set( left )
                         last.remove( index )
                         return_list.append( ( v2, index, last ) )
