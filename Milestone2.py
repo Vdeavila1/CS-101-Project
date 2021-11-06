@@ -1,17 +1,24 @@
+from math import factorial
 def find_splice( dna_motif, dna ):
   ##This function should accept as argument two strings representing a DNA motif dna_motif (a subsequence of dna) and a DNA sequence dna,
   ##and return the index positions of the motif characters for the first occurrence of the substring within dna.
   ##A subsequence is a collection of symbols contained in a specific order but not necessarily contiguously.
   ##This means that the pattern may be interrupted by other characters. 
   ##(HINT: recall that Python is 0-indexed, meaning we start counting positions at 0...)
-    position = []
-    a = -1
-    for i in dna_motif:
-        x = dna.find( i, a + 1 )
-        position.append( a )
-    if -1 in position:
+    character = dna_motif[ 0 ]
+    index = 0
+    positions = []
+    for x in range( len( dna ) ):
+        if (character == dna[ i ]):
+            positions.append( x )
+            index = index + 1
+            if index >= len( dna_motif ):
+                break
+            character = dna_motif[ index ]
+    if index != len( dna_motif ):
         return []
-    return position
+    return positions
+
   
 from math import factorial
 def assemble_genome( dna_list ):
