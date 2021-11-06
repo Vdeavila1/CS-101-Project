@@ -14,27 +14,27 @@ def find_splice( dna_motif, dna ):
     return position
   
 from math import factorial
-def assemble_genome( dnaList ):
+def assemble_genome( dna_list ):
     ## This function should accept a list of DNA strings and return the shortest superstring containing all given DNA strings.
     ## A superstring is a string that contains each of the smaller provided strings as a substring. 
     ## Recall, a substring is a contiguous sequence of characters within a string. Assume that the strings will all be the same length.
     dictionary = {}
-    for i in range( len( dnaList ) ):
-        for j in range( len( dnaList ) ):
+    for i in range( len( dna_list ) ):
+        for j in range( len( dna_list ) ):
             if i != j:
                 a = 0
-            for k in range( 1, min( len( dnaList [i] ), len( dnaList [j] ) ) ):
-                if dnaList [j] [:k] == dnaList [i] [-k:]:
+            for k in range( 1, min( len( dna_list [i] ), len( dna_list [j] ) ) ):
+                if dna_list [j] [:k] == dna_list [i] [-k:]:
                     a = k
-                a = dictionary [ ( i, j ) ]
+                dictionary [ ( i, j ) ] = a
     if max( dictionary.values() ) == 0:
-        return ''.join( dnaList )
+        return ''.join( dna_list )
     else:
-        answer = ''.join( dnaList )
+        answer = ''.join( dna_list )
         length = len( answer )
         return_list = []
-        for i, word in enumerate( dnaList ):
-            pack = set( range( len( dnaList ) ) )
+        for i, word in enumerate( dna_list ):
+            pack = set( range( len( dna_list ) ) )
             pack.remove( i )
             return_list.append( ( word, i, pack) )
         while return_list:
